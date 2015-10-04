@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery Mobile Application</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/
+jquery.mobile-1.0a4.1.min.css" />
+<script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js">
+</script>
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+<script>
+var myCenter=new google.maps.LatLng(-37.984238,145.214302);
+var marker;
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:5,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker=new google.maps.Marker({
+  position:myCenter,
+  animation:google.maps.Animation.BOUNCE
+  });
+
+marker.setMap(map);
+
+var infowindow = new google.maps.InfoWindow({
+  content:"Lion Resturent!"
+  });
+
+google.maps.event.addListener(marker, 'click', function() {
+  infowindow.open(map,marker);
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
+
+</head>
+<body>
+
+<!-- begin first page -->
+<section id="page1" data-role="page">
+<header data-role="header">
+<h1>Lion Resturent</h1></header>
+<div data-role="content" class="content">
+<img src="Lio Pub\resturent.jpg" alt="Lion" width="100%" height="10%" />
+</div>
+
+<h3>Welcome to the Lion Resturent</h3>
+
+<ul data-role="listview">
+<li><a href="#page2.html"><img src="Lio Pub\Menue2.png" alt="Antoine's logo">Menue</a></li>
+<li><a href="#page3.html"><img src="Lio Pub\Contacts3.png" alt="Antoine's logo">Contact Us</a></li>
+<li><a href="#page4.html"><img src="Lio Pub\Navigation2.png" alt="Antoine's logo">Navigation</a></li>
+<li><a href="#page5.html"><img src="Lio Pub\Feedback1.png" alt="Antoine's logo">Feedback</a></li>
+<li><a href="#page6.html"><img src="Lio Pub\Developer3.png" alt="Antoine's logo">Developer</a></li>
+</ul>
+
+<footer data-role="footer"><h1>Copyright 2015-2020</h1></footer>
+</section>
+<!-- end first page -->
+</body>
+</html>
